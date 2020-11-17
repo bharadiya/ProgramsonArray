@@ -1,28 +1,38 @@
-
-public class Ascending {
-	public static void main(String[] args) 
-	// comment added checked
-	{
-		int[] arr = { 10, 9, 8, 6, 3, 11, 11, 11, 1, 1, 9, 8, 7 };
-		int temp1 = 0;
-		for (int i = 0; i < arr.length - 1; i++) {
-			for (int j = 0; j < arr.length - i - 1; j++) {
-				if (arr[j] < arr[j + 1]) {
-					temp1 = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp1;
-					
-				}
-			}
-		}
-		/* sorted for descending order */
-		for (int i = 0; i < arr.length - 1; i++) {
-			if (arr[i] == arr[i + 1])
-				continue;
-			else {
-				System.out.print(arr[i + 1]);
-				break;
-			}
-		}
-	}
-} // this comment to check conflicts
+import java.util.Scanner;
+public class JavaExample 
+{
+    public static void main(String[] args) 
+    {
+    	int count, temp;
+    	
+    	//User inputs the array size
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter number of elements you want in the array: ");
+        count = scan.nextInt();
+    
+        int num[] = new int[count];
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < count; i++) 
+        {
+            num[i] = scan.nextInt();
+        }
+        scan.close();
+        for (int i = 0; i < count; i++) 
+        {
+            for (int j = i + 1; j < count; j++) { 
+                if (num[i] > num[j]) 
+                {
+                    temp = num[i];
+                    num[i] = num[j];
+                    num[j] = temp;
+                }
+            }
+        }
+        System.out.print("Array Elements in Ascending Order: ");
+        for (int i = 0; i < count - 1; i++) 
+        {
+            System.out.print(num[i] + ", ");
+        }
+        System.out.print(num[count - 1]);
+    }
+}
